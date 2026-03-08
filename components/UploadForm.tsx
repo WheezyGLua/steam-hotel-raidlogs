@@ -52,8 +52,15 @@ export default function UploadForm() {
         body: formData,
       });
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Upload failed');
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (parseError) {
+        throw new Error(text.includes('Request Entity Too Large') ? 'File is too large for the server configuration' : (text || `Upload failed with status ${res.status}`));
+      }
+
+      if (!res.ok) throw new Error(data?.error || 'Upload failed');
       
       router.push(`/logs/${data.raidId}`);
     } catch (err: any) {
