@@ -10,9 +10,9 @@ export const revalidate = 0; // Dynamic route
 export default async function RaidViewerPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const raidId = params.id;
+  const { id: raidId } = await params;
 
   const raid = await db.query.raids.findFirst({
     where: eq(raids.id, raidId),

@@ -5,15 +5,17 @@ import { eq } from 'drizzle-orm';
 
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    if (!params.id) {
+    const { id } = await params;
+    
+    if (!id) {
        return NextResponse.json({ error: 'No ID provided' }, { status: 400 });
     }
 
     const raid = await db.query.raids.findFirst({
-      where: eq(raids.id, params.id),
+      where: eq(raids.id, id),
       with: {
         encounters: {
            with: {
