@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
-import { processAndSaveLog } from '../../../lib/db-actions';
+
 import { Readable } from 'stream';
 import busboy from 'busboy';
+import { processAndSaveLog } from '@/lib/db-actions';
 
 // Disable Next.js default body parser to handle massive file streams natively
 export const dynamic = 'force-dynamic';
