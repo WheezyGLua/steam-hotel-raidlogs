@@ -14,21 +14,6 @@ export default function Home() {
       </div>
 
       <UploadForm />
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 max-w-4xl mx-auto text-center opacity-80">
-         <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <h3 className="text-xl font-bold text-slate-200 mb-2 mt-2">Lightning Fast</h3>
-            <p className="text-sm text-slate-400">Node stream processing handles 500MB+ logs instantly without crashing the browser.</p>
-         </div>
-         <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <h3 className="text-xl font-bold text-slate-200 mb-2 mt-2">Deep Insights</h3>
-            <p className="text-sm text-slate-400">Review precise damage and healing mechanics per encounter, directly inspired by WCL.</p>
-         </div>
-         <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <h3 className="text-xl font-bold text-slate-200 mb-2 mt-2">Globally Searchable</h3>
-            <p className="text-sm text-slate-400">All uploads are indexed. Search by guild, custom raid name, or specific encounters.</p>
-         </div>
-      </div>
-    </div>
+
   );
 }

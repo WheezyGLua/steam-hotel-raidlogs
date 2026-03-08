@@ -5,7 +5,8 @@ import { processAndSaveLog } from '@/lib/db-actions';
 export const config = {
   api: {
     bodyParser: false,
-    externalResolver: true, // Let Next.js know the response is handled asynchronously
+    responseLimit: false, // Disables warning about response size 
+    externalResolver: true,
   },
 };
 
